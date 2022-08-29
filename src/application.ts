@@ -8,6 +8,7 @@ import {RepositoryMixin} from '@loopback/repository';
 import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
+import dotEnvExtended from 'dotenv-extended';
 import {MySequence} from './sequence';
 
 export {ApplicationConfig};
@@ -17,6 +18,13 @@ export class Users extends BootMixin(
 ) {
   constructor(options: ApplicationConfig = {}) {
     super(options);
+    // Run the application
+    // load env variables
+    dotEnvExtended.load({
+      schema: '.env.example',
+      errorOnMissing: true,
+      errorOnExtra: true,
+    });
     // Set up the custom sequence
     this.sequence(MySequence);
 

@@ -1,6 +1,5 @@
 import {ApplicationConfig, Users} from './application';
-import dotenv from "dotenv";
-import dotEnvExtended from 'dotenv-extended';
+
 export * from './application';
 export async function main(options: ApplicationConfig = {}) {
   const app = new Users(options);
@@ -14,13 +13,7 @@ export async function main(options: ApplicationConfig = {}) {
 }
 
 if (require.main === module) {
-  // Run the application
-  // load env variables
-  dotEnvExtended.load({
-    schema: '.env.example',
-    errorOnMissing: true,
-    errorOnExtra: true
-  }); 
+  
   
   const config = {
     rest: {

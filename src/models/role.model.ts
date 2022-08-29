@@ -1,4 +1,10 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, Model, model, property} from '@loopback/repository';
+
+export enum Roles {
+  SUPERADMIN = "SuperAdmin",
+  ADMIN = "Admin",
+  SUBSCRIBER = "Subscriber",
+}
 
 @model()
 export class Role extends Entity {
@@ -8,7 +14,7 @@ export class Role extends Entity {
     generated: false,
     required: true,
   })
-  key: string;
+  key: Roles;
 
   @property({
     type: 'string',
@@ -16,6 +22,10 @@ export class Role extends Entity {
   })
   name: string;
 
+  @property({
+    type: 'number',
+  })
+  userId?: number;
 
   constructor(data?: Partial<Role>) {
     super(data);
