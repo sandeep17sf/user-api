@@ -13,13 +13,13 @@ export class User extends Entity {
     type: 'string',
     required: true,
   })
-  first_name: string;
+  firstName: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  last_name: string;
+  lastName: string;
 
   @property({
     type: 'string',
@@ -30,7 +30,7 @@ export class User extends Entity {
   @property({
     type: 'string',
   })
-  middle_name?: string;
+  middleName?: string;
 
   @property({
     type: 'string',
@@ -47,6 +47,15 @@ export class User extends Entity {
     type: 'string',
   })
   address?: string;
+
+  @property({
+    type: 'string',
+  })
+  created_at?: string;
+  @property({
+    type: 'string',
+  })
+  updated_at?: string;
 
   constructor(data?: Partial<User>) {
     super(data);
