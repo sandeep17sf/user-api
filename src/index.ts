@@ -1,5 +1,5 @@
 import {ApplicationConfig, Users} from './application';
-
+import 'dotenv/config' 
 export * from './application';
 
 export async function main(options: ApplicationConfig = {}) {

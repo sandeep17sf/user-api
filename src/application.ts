@@ -35,7 +35,7 @@ export class Users extends BootMixin(
     this.bootOptions = {
       controllers: {
         // Customize ControllerBooter Conventions here
-        dirs: ['controllers'],
+        dirs: ['app-controllers'],
         extensions: ['.controller.js'],
         nested: true,
       },
