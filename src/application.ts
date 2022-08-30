@@ -10,7 +10,6 @@ import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
 import dotEnvExtended from 'dotenv-extended';
 import {MySequence} from './sequence';
-
 export {ApplicationConfig};
 
 export class Users extends BootMixin(
@@ -25,6 +24,7 @@ export class Users extends BootMixin(
       errorOnMissing: true,
       errorOnExtra: true,
     });
+   
     // Set up the custom sequence
     this.sequence(MySequence);
 

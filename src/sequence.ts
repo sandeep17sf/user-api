@@ -27,6 +27,7 @@ export class MySequence extends MiddlewareSequence {
 
     const isAllowed = this.checkReferOrigin(request.get('referer') || '');
     if (!isAllowed) {
+      
       response.status(403).send('Access denied for this origin');
       return;
     }
