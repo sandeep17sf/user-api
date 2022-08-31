@@ -5,7 +5,7 @@ export class MySequence extends MiddlewareSequence {
     console.log(msg);
   }
   checkReferOrigin(referer: string): boolean {
-    const originList = process.env.ALLOWED_ORIGINS?.split(',') || [];
+    const originList = process.env.ALLOWED_ORIGINS?.split(',') ?? [];
 
     if (!referer) {
       // no origin found
@@ -21,11 +21,11 @@ export class MySequence extends MiddlewareSequence {
     return false;
   }
   async handle(context: RequestContext) {
-    let startTime = new Date().toLocaleTimeString();
+    const startTime = new Date().toLocaleTimeString();
 
     const {request, response} = context;
 
-    const isAllowed = this.checkReferOrigin(request.get('referer') || '');
+    const isAllowed = this.checkReferOrigin(request.get('referer') ?? '');
     if (!isAllowed) {
       
       response.status(403).send('Access denied for this origin');
@@ -33,7 +33,7 @@ export class MySequence extends MiddlewareSequence {
     }
 
     console.time('Completed In');
-    const ip = request.headers['x-forwarded-for'] || request.ip;
+    const ip = request.headers['x-forwarded-for'] ?? request.ip;
     const userAgent = request.headers['user-agent'];
     this.logger(
       `${ip} ${request.method} ${startTime} ${request.originalUrl} ${userAgent} `,

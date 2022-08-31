@@ -1,5 +1,7 @@
 import {inject} from '@loopback/core';
-import {DefaultCrudRepository} from '@loopback/repository';
+import {
+  DefaultCrudRepository,
+} from '@loopback/repository';
 import {PostgresDataSource} from '../datasources';
 import {Customer, CustomerRelations} from '../models';
 
@@ -8,9 +10,12 @@ export class CustomerRepository extends DefaultCrudRepository<
   typeof Customer.prototype.id,
   CustomerRelations
 > {
-  constructor(
-    @inject('datasources.postgres') dataSource: PostgresDataSource,
-  ) {
+  constructor(@inject('datasources.postgres') dataSource: PostgresDataSource) {
     super(Customer, dataSource);
+  }
+  findByName(
+    name: string,
+  ): Promise<(Customer & CustomerRelations) | null> {
+    return  this.findOne({where: {name: name}});
   }
 }

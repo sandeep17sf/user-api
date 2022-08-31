@@ -19,7 +19,7 @@ export class Customer extends Entity {
   @property({
     type: 'string',
   })
-  webiste?: string;
+  website?: string;
 
   @property({
     type: 'string',

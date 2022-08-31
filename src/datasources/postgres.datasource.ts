@@ -10,6 +10,10 @@ const config = {
   user: process.env.POSTGERS_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DATABASE,
+  min: 5,
+  max: 200,
+  idleTimeoutMillis: 60000,
+  ssl: false
 };
 
 // Observe application's life cycle to disconnect the datasource when

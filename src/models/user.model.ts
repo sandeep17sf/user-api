@@ -1,6 +1,6 @@
 import {Entity, model, property, belongsTo, hasOne} from '@loopback/repository';
 import {Customer} from './customer.model';
-import {Role, Roles} from './role.model';
+import {Role } from './role.model';
 
 @model()
 export class User extends Entity {
@@ -46,11 +46,11 @@ export class User extends Entity {
   @property({
     type: 'string',
   })
-  created_at?: string;
+  createdAt?: string;
   @property({
     type: 'string',
   })
-  updated_at?: string;
+  updatedAt?: string;
 
   @belongsTo(() => Customer)
   customerId: number;

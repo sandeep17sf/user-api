@@ -1,4 +1,4 @@
-import {Entity, Model, model, property} from '@loopback/repository';
+import {Entity, model, property} from '@loopback/repository';
 
 export enum Roles {
   SUPERADMIN = "SuperAdmin",
